@@ -1,11 +1,22 @@
+:root {
+    --a:#e0c281;
+    --b:#ffffff;
+    --c:#93caa6;
+    --d:#488bc1;
+    --e:#2d41a3;
+}
+
 body {
-    background-image: linear-gradient(to right, #ffffff , #b49e8d);
-    font-style: white;
+    
+    background-image: linear-gradient(to right, #ffffff, #93caa6);
+    font-style: var(--b);
 
 }
 
 #header  {
-    background-color: #ab7500;
+    background-color: #488bc1;
+    color: var(--b)
+
 }
 
 /* .container {
