@@ -26,26 +26,37 @@ an icon representation of weather conditions,
 
 */
 
+// const searchBtn = document.querySelector('#searchButton');
+// const citySearch = document.querySelector('#citySearch');
 
+
+// searchBtn.addEventListener('click', function (event) {
+//     event.preventDefault();
+// let potato = event.target.value;
+// console.log(potato)
+//     console.log('clicked');
+//     localStorage.setItem("City", citySearch);
+//     JSON.parse(localStorage.getItem("City"));
+// })
 
 //--------------Global Variables ----\
 const searchBtn = document.querySelector('#searchButton');
 let citySearch = document.querySelector('#citySearch');
 let getCity = function (event) {
     event.preventDefault();
-    
-    let name = citySearch.value.trim();
-    if (name) {
-        runFunction(name)
+    let cityName = citySearch.value.trim();
+    localStorage.setItem("City", cityName);
+    if (cityName) {
+        runFunction(cityName)
     }
 }
 
 
 
 
-var runFunction = function (name) {
+var runFunction = function (cityName) {
 
-    var requestUrl = `https://api.openweathermap.org/data/2.5/weather?q=${name}&units=metric&appid=4d5d9b3ba4f089d7ed898b71a8ee0a08`
+    var requestUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=4d5d9b3ba4f089d7ed898b71a8ee0a08`
 
     fetch(requestUrl)
         .then(function (response) {
@@ -60,6 +71,9 @@ var runFunction = function (name) {
             document.getElementById('currentForecast').style.backgroundColor = "#ffffff";
             document.getElementById('cityName').innerHTML = data.name
             document.getElementById('cityName').style.color = "pink"
+
+            // INSERT ICON! 
+
             document.getElementById('temp').innerHTML = "Temperature: " + data.main.temp.toString().split(".")[0] + " °C";
             document.getElementById('temp').style.color = "red"
             document.getElementById('windSpeed').innerHTML = "Wind Speed: " + data.wind.speed + ' MPH';
@@ -68,7 +82,7 @@ var runFunction = function (name) {
             document.getElementById('humidity').style.color = "green"
             // console.log(JSON.stringify(data.weather[0]));
 
-            var forecast = `https://api.openweathermap.org/data/2.5/forecast?q=${name}&units=metric&appid=4d5d9b3ba4f089d7ed898b71a8ee0a08`
+            var forecast = `https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&units=metric&appid=4d5d9b3ba4f089d7ed898b71a8ee0a08`
 
             fetch(forecast)
                 .then(function (response) {
@@ -94,7 +108,7 @@ var runFunction = function (name) {
                         div.style.flexFlow = "column wrap";
                         div.style.padding = "10px";
 
-                        let date_heading = document.createElement("h4");
+                        let date_heading = document.createElement("h5");
 
                         // h4.style.display = "flex";
 
@@ -109,10 +123,17 @@ var runFunction = function (name) {
                         let dateOrder = `${dateArr[2]} - ${dateArr[1]} - ${dateArr[0]}`
                         // also written "dateArr[2] + '-' + dateArr[1] + '-' + dateArr[0]"
                         date_heading.innerHTML = dateOrder
-
-
                         // date_heading.innerHTML = dateFetched.toString().split("-")[1].push([2])
                         // console.log(dateFetched.toString().split("-"));
+
+
+                        //INSERT ICON!!
+                        let iconEl = document.createElement("p")
+                        let icon_URL = 'http://openweathermap.org/img/wn/' + data.list[i].weather[0].icon + '@2x.png'
+                        // icon_link.setAttribute(href, ('http://openweathermap.org/img/wn/' + data.list[i].weather[0].icon + '@2x.png'))
+                        // iconEl.innerHTML = icon_URL.iconEl
+
+
 
                         let temperature_paragraph = document.createElement("p")
                         temperature_paragraph.innerHTML = 'Temp: ' + data.list[i].main.temp + ' °C'
@@ -125,10 +146,6 @@ var runFunction = function (name) {
                         humidity_paragraph.innerHTML = 'Humidity: ' + data.list[i].main.humidity + ' %'
                         // console.log();
 
-                        let iconEl = document.createElement("p")
-                        let icon_URL = 'http://openweathermap.org/img/wn/' + data.list[i].weather[0].icon + '@2x.png'
-                        // icon_link.setAttribute(href, ('http://openweathermap.org/img/wn/' + data.list[i].weather[0].icon + '@2x.png'))
-                        // iconEl.innerHTML = icon_URL.iconEl
 
                         div.append(date_heading, temperature_paragraph, wind_paragraph, humidity_paragraph)
                         parentDiv.append(div)
