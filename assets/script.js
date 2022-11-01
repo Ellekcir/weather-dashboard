@@ -33,6 +33,7 @@ let getCity = function (event) {
     if (cityName) {
         runFunction(cityName)
     }
+    
 }
 
 //----------------------------------------------------------------------------------------------
@@ -57,7 +58,7 @@ let getCityList = function () {
         //styles button ---------------------------------------------NOT WORKING 
         cityBtn.style.testAlign="center";
         cityBtn.style.border= "none";
-        cityBtn.style.backgroundColor= "#e0c281";
+        cityBtn.style.backgroundColor= "#d2c2f6";
         cityBtn.style.textAlign="center"
 // For each city grabbed from the array puts the button name as the city name
         cityBtn.innerHTML = city;
@@ -101,7 +102,7 @@ var runFunction = function (cityName) {
             //document.getElementById('currentForecast').style.backgroundColor = "#488bc1";
             // document.getElementById('currentForecast').style.backgroundColor = "#488bc1";
             document.getElementById('cityName').innerHTML = data.name
-            document.getElementById('cityName').style.color = "#2d41a3"
+            document.getElementById('cityName').style.color = "#27277c"
 
             // INSERT ICON! 
             let iconImage = document.getElementById('icon')  
@@ -122,7 +123,7 @@ var runFunction = function (cityName) {
             document.getElementById('temp').innerHTML = "Temperature: " + data.main.temp.toString().split(".")[0] + " °C";
             document.getElementById('temp').style.color = "#ffffff";
             document.getElementById('dateCurrent').innerHTML = currentMoment;
-            document.getElementById('dateCurrent').style.color = "#93caa6";
+            document.getElementById('dateCurrent').style.color = "#27277c";
             document.getElementById('windSpeed').innerHTML = "Wind Speed: " + data.wind.speed + ' MPH';
             document.getElementById('windSpeed').style.color = "#ffffff"
             document.getElementById('humidity').innerHTML = "Humidity: " + data.main.humidity + " %";
@@ -213,7 +214,7 @@ var runFunction = function (cityName) {
                     forecastDiv.append(parentDiv)
                     // parentDiv.append(body)
 
-
+                    
                 })
         })
 };
@@ -226,6 +227,7 @@ var runFunction = function (cityName) {
 
 let clearAll = function () {
     localStorage.removeItem('City');
+    location.reload();
 }
 
 // event listener to the input text (location) 

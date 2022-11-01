@@ -1,31 +1,38 @@
 :root {
-    --a:#ffcb5a;
+    --a:#d2c2f6;
     --b:#ffffff;
-    --c:#93caa6;
+    --c:#27277c;
     --d:#488bc1;
-    --e:#2d41a3;
+    --e:#2d6ca3;
 }
 
 body {
     
-    background-image: linear-gradient(to right, #ffffff, #ffcb5a);
+    background-image: linear-gradient(to right,#488bc1, #ffffff) ;
     font-style: var(--b);
 
 }
 
 #header  {
+    background-image: linear-gradient(to right,  #27277c,#ffffff);
     background-color: var(--e);
-    color: var(--d);
+    color: var(--b);
     padding: 25px;
 }
  
 .lead {
-    color: var(--a);
+    color: var(--d);
 }
 /* .container {
     background-color:  red;
 } */
 
 button {
-    background-color: #2d41a3;
+    background-color:var(--b);
+    margin: 10px;
+    border-radius: 50px;
 }
+
+button:hover {
+    background-color: var(--a);
+  }
