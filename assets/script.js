@@ -28,7 +28,7 @@ let getCity = function (event) {
     // This .push will push the cityName (users input) into the array provided in cityList
     cityList.push(cityName);
     // Grabs the array from cityList and attaches to the local storage withthe key name 'City'
-    localStorage.setItem("City", cityList);
+    localStorage.setItem("City", cityList.join(','));
     // When the user enters a value of a city it will run the function attaching the city to the api fetch
     if (cityName) {
         runFunction(cityName)
@@ -76,7 +76,8 @@ let getCityList = function () {
 
 }
 // Calls function
-getCityList();
+if (localStorage.getItem('City') !== null)
+    getCityList() 
 
 //----------------------------------------------------------------------------------------------
 // CURRRENT WEATHER 
@@ -103,6 +104,20 @@ var runFunction = function (cityName) {
             document.getElementById('cityName').style.color = "#2d41a3"
 
             // INSERT ICON! 
+            let iconImage = document.getElementById('icon')  
+            let iconFetchedUrl = 'http://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png'
+            iconImage.setAttribute("src", iconFetchedUrl);
+            
+            // let iconEl = document.createElement("p")
+            // let icon_URL = 'http://openweathermap.org/img/wn/' + data.list[i].weather[0].icon + '@2x.png'
+            // let imgTag = document.createElement("img");
+
+            // imgTag.setAttribute("src", icon_URL);
+            // iconEl.append(imgTag)
+
+
+
+
 
             document.getElementById('temp').innerHTML = "Temperature: " + data.main.temp.toString().split(".")[0] + " °C";
             document.getElementById('temp').style.color = "#ffffff";
@@ -214,6 +229,6 @@ let clearAll = function () {
 }
 
 // event listener to the input text (location) 
-searchBtn.addEventListener('click', getCity)
+searchBtn.addEventListener('click', getCity);
 clearStorage.addEventListener('click', clearAll)
 

@@ -1,5 +1,5 @@
 :root {
-    --a:#e0c281;
+    --a:#ffcb5a;
     --b:#ffffff;
     --c:#93caa6;
     --d:#488bc1;
@@ -8,17 +8,24 @@
 
 body {
     
-    background-image: linear-gradient(to right, #ffffff, #93caa6);
+    background-image: linear-gradient(to right, #ffffff, #ffcb5a);
     font-style: var(--b);
 
 }
 
 #header  {
-    background-color: #488bc1;
-    color: var(--b)
-
+    background-color: var(--e);
+    color: var(--d);
+    padding: 25px;
 }
-
+ 
+.lead {
+    color: var(--a);
+}
 /* .container {
     background-color:  red;
 } */
+
+button {
+    background-color: #2d41a3;
+}
