@@ -17,7 +17,7 @@ When the user clicks on a city in the search history, they shall then be present
 
 
     ```md
-    ![alt text](assets/images/screenshot.png)
+    ![Video of Weather Dashboard](./assets/media/Weather%20Dashboard.webm)
     ```
 
 To see deployed site:

@@ -37,15 +37,15 @@
                     <div class="form-row"></div>
 
                     <input id="citySearch" class="form-control"></input>
-                    <label for="citySearch">Search for a City:</label>
+                    <label for="citySearch" class="text-light">Search for a City:</label>
                     <!-- fontawesome icon for the magnifying glass <i> -->
-                    <button id="searchButton" class=" float-right" type="submit"><i
+                    <button id="searchButton" class=" float-right" data-toggle="tooltip" title="Search for City" type="submit"><i
                             class="fas fa-search"></i></button>
                 </form>
                 <div id='cityHistory'>
                     <ul id="cityResults" class="list-group mt-4"></ul>
                     <!-- clear local storage button with w3 icon -->
-                    <button id="clearStorage" class="float-right"><i class="fa fa-trash"></i></button>
+                    <button id="clearStorage" class="float-right" data-toggle="tooltip" title="Clear Search History"><i class="fa fa-trash"></i></button>
                 </div>
 
             </div>

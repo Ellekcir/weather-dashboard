@@ -230,6 +230,11 @@ let clearAll = function () {
     location.reload();
 }
 
+
+$(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();
+});
+
 // event listener to the input text (location) 
 searchBtn.addEventListener('click', getCity);
 clearStorage.addEventListener('click', clearAll)
